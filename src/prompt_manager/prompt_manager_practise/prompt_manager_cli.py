@@ -63,7 +63,7 @@ prompt_dictionary = {
 
 
 
-#lets display all prompt names
+# lets display all prompt names
 
 # print(list(prompt_dictionary.keys()))
 
@@ -111,65 +111,88 @@ prompt_dictionary = {
 # assignment 2 Stage 2 — Create Prompt + Validation
 
 
-name = input("Your prompt name: ").strip().lower()
-category = input("Enter the category: ").strip().lower()
-system_prompt = input("Enter the system prompt: ").strip()
-version = input("Enter the version (eg: 1.0.0): ").strip()
-is_active = input("Is it active(True/False): ").strip().lower()  # because any non empty string is true
+# name = input("Your prompt name: ").strip().lower()
+# category = input("Enter the category: ").strip().lower()
+# system_prompt = input("Enter the system prompt: ").strip()
+# version = input("Enter the version (eg: 1.0.0): ").strip()
+# is_active = input("Is it active(True/False): ").strip().lower()  # because any non empty string is true
 
 
 
-#;ets validate 
+# #;ets validate 
 
-VALID_CATEGORIES = {
-    "general",
-    "coding",
-    "research",
-    "support",
-    "utility"
-}
-
-
-# we don;t want duplicate names 
-
-if name!= "" and (name  not in  prompt_dictionary.keys()):
-    #lets validate categoroes
-    if category != "" and category in VALID_CATEGORIES:
-        # we dont need empty system prompt
-        if system_prompt != "":
-            # we need to match version
-            pattern = r"^\d+\.\d+\.\d+$"
-
-            if re.match(pattern, version):
-            # we only need true/false for 
-                if is_active in ("true","false"):
-                    is_active = (is_active == "true") # it will conver automatically
-                    #Then we will insert our new dictonary
-                    prompt = {
-                                    "name":name,
-                                    "category":category,
-                                    "system_prompt":system_prompt,
-                                    "version":version,
-                                    "is_active":is_active
-                                }
-
-                    prompt_dictionary[name] = prompt # it will add 
-                    print("Prompt created successfully!")
+# VALID_CATEGORIES = {
+#     "general",
+#     "coding",
+#     "research",
+#     "support",
+#     "utility"
+# }
 
 
-                    # lets print that prompt 
+# # we don;t want duplicate names 
 
-                    print_prompt_dictonary(prompt_dictionary)
-                else:
-                    print("Invalid active status, please enter true/false.")
-            else:
-                print("Invalid version. Use format: MAJOR.MINOR.PATCH (e.g. 1.0.0)")
-        else:
-            print("System prompt cannot be empty.")
-    else:
-        print("Invalid categor.y")
-else:
-    print("Prompt already exists.") if name != "" else print("name cannot be empty.")
+# if name!= "" and (name  not in  prompt_dictionary.keys()):
+#     #lets validate categoroes
+#     if category != "" and category in VALID_CATEGORIES:
+#         # we dont need empty system prompt
+#         if system_prompt != "":
+#             # we need to match version
+#             pattern = r"^\d+\.\d+\.\d+$"
+
+#             if re.match(pattern, version):
+#             # we only need true/false for 
+#                 if is_active in ("true","false"):
+#                     is_active = (is_active == "true") # it will conver automatically
+#                     #Then we will insert our new dictonary
+#                     prompt = {
+#                                     "name":name,
+#                                     "category":category,
+#                                     "system_prompt":system_prompt,
+#                                     "version":version,
+#                                     "is_active":is_active
+#                                 }
+
+#                     prompt_dictionary[name] = prompt # it will add 
+#                     print("Prompt created successfully!")
+
+
+#                     # lets print that prompt 
+
+#                     print_prompt_dictonary(prompt_dictionary)
+#                 else:
+#                     print("Invalid active status, please enter true/false.")
+#             else:
+#                 print("Invalid version. Use format: MAJOR.MINOR.PATCH (e.g. 1.0.0)")
+#         else:
+#             print("System prompt cannot be empty.")
+#     else:
+#         print("Invalid categor.y")
+# else:
+#     print("Prompt already exists.") if name != "" else print("name cannot be empty.")
+
+
+
+
+
+# lets perform our tasks
+
+
+# print("========== PROMPTS ==========")
+
+
+# for idx,prompt_key in enumerate(prompt_dictionary,1):
+
+#     if prompt_dictionary[prompt_key]["is_active"]:
+#          print(f"{idx}. {prompt_key} - Active")
+#     else:
+#          print(f"{idx}. {prompt_key} - Inactive")
+
+
+# print("==============================")
+
+# print(f"Total Prompts: {len(prompt_dictionary)}")
+
 
 
 
